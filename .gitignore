@@ -1,0 +1,9 @@
+# .gitignore (in nginx-next-dock/)
+node_modules/
+app/node_modules/
+.next/
+out/
+*.log
+.DS_Store
+Dockerfile.bak
+nginx.conf.bak
