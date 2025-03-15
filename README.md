@@ -1,26 +1,26 @@
 # nginx-next-dock
+A Docker template for a Next.js app proxied by NGINX. One process per container, because rules are rules.
 
-## Welcome, Fearless Next.js Docker Pioneer!
+## Structure
+- `next-app/` - Your Next.js app lives here.
+- `nginx/` - NGINX config, the bouncer for your app.
+- `Dockerfile.next` - Builds the Next.js app.
+- `Dockerfile.nginx` - Sets up NGINX.
+- `docker-compose.yml` - Orchestrates the chaos.
 
-You’ve cloned this Next.js + Nginx Docker combo. Thrilling, right? (We’ll pretend it is.)
+## Usage
+1. Got a Next.js app? Dump it in `next-app/`. No app? Run npx `create-next-app@latest next-app`.
+2. From the root, hit:
+```bash
+docker-compose up --build
+```
 
-### Quick Start (No Time for Drama)
-1. Clone this repo: `git clone https://github.com/yeahitsmejayyy/nginx-next-dock`
-2. Navigate: `cd nginx-next-dock`
-3. Build it: `docker build -t nginx-next-dock .`
-4. Run it: `docker run -d -p 80:80 --name nginx-next-container nginx-next-dock`
-5. Behold: Open `http://localhost` (sudo might save you if port 80 sulks)
+## Notes
+- NGINX listens on port 80, proxies to Next.js on 3000.
+- Customize `nginx/nginx.conf` if you’re feeling fancy.
+- Troubleshooting? Check logs, not my inbox.
 
-### What’s Inside?
-- A basic Next.js app (Yes, I added shadcn-ui) in `app/`
-- A `Dockerfile` leaner than a diet plan
-- An `nginx.conf` to keep things orderly
-- Static goodness served by Nginx
 
-### Pro Tips (You’re Basically a Docker Wizard Now)
-- Tweak your Next.js code in `app/` (yes, it’s customizable!)
-- Rebuild with `docker build -t nginx-next-dock .` after code changes
-- Stop it with: `docker stop nginx-next-container` and `docker rm nginx-next-container`
-- If port 80 is taken, sigh, then try `8080` or wrestle with `sudo`
 
-Sail the Docker seas with your Next.js treasure! (Or just serve a webpage without too much fuss.)
+
+

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  next-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.next
+    ports:
+      - "3000:3000"  # Optional: expose Next.js directly for testing
+    environment:
+      - NODE_ENV=production
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"  # Public-facing port
+    depends_on:
+      - next-app
