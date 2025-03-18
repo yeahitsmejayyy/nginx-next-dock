@@ -1,4 +1,4 @@
-# Multi-Container Docker Setup: Nginx + Next.js
+# Docker Template: Nginx + Next.js
 
 A Docker template for a multi-container setup featuring a Next.js app proxied by NGINX.
 
